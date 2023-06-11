@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
+from WMS.decorators import group_required
 
 
 def login_user(request):
@@ -24,3 +25,8 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect("home")
+
+
+@group_required(["Admin", "Kieras"])
+def account(request):
+    return render(request, "users/account.html")

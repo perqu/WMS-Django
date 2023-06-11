@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/core/access_denied.css' %}">
+<div class="container">
+    <h1>Brak dostępu</h1>
+    <p>Nie masz wymaganej grupy, aby uzyskać dostęp do tej strony.</p>
+    <a href="/" class="button">Powrót do strony głównej</a>
+</div>
+{% endblock %}

@@ -1,4 +1,5 @@
 {% load static %}
+{% load custom_filters %}
 
 <html lang="en">
 <head>
@@ -23,22 +24,27 @@
               <li><a href="#">Sub-3</a></li>
             </ul>
           </li>
-          <li><a href="#">Three</a></li>
+          {% if user.is_authenticated and user|user_in_groups:'Admin, Kieras' %}
+          <li><a href="{% url 'account' %}">Account</a></li>
+          {% else %}
+          <li class="disabled-text">Account</li>
+          {% endif %}
+
         </ul>
 
         <div class="panel">
             {% if user.is_authenticated %}
-            Zalogowano jako: {{ user.get_username }}<a class="login-button" href="{% url 'logout' %}">Wyloguj</a>
+            Logged in as:<span style="font-weight: bold; margin-left: 5px;">{{ user.get_username }}</span><a class="login-button" href="{% url 'logout' %}">Log out</a>
             {% else %}
-            <button id="login-button" class="login-button">Zaloguj</button>
+            <button id="login-button" class="login-button">Log in</button>
             {% endif %}
         </div>
     </nav>
 
-    <div class="container">
-        przyklad
-    </div>
+    {% block content %}
+      
+    {% endblock %}
 
-{% include 'login_window.html' %}
+{% include 'core/login_window.html' %}
 </body>
 </html>

@@ -72,6 +72,13 @@ li {
     transition-duration: 0.5s;
 }
 
+.disabled-text {
+    color: gray;
+}
+.disabled-text:hover {
+    background: rgb(219, 222, 225);
+    cursor:default;
+}
 li:hover,
 li:focus-within {
     background: rgb(168, 168, 168);
