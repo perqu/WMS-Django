@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/core/style.css' %}">
+        <title>WMS</title>
+    </head>
+    
+    <body>
+        <h1>Instrukcja użytkowania</h1>
+
+        <h2>Rejestracja nowego konta</h2>
+        <p>Aby zarejestrować nowe konto, wykonaj zapytanie POST na poniższym adresie URL:</p>
+        <pre><code>POST /signup/</code></pre>
+        <p>Przykładowe dane do przesłania:</p>
+        <pre><code>{
+        "username": "exampleuser",
+        "password": "secretpassword",
+        "email": "example@example.com"
+        }</code></pre>
+
+        <h2>Logowanie</h2>
+        <p>Aby zalogować się na swoje konto, wykonaj zapytania:</p>
+        <pre><code>POST /login/</code></pre>
+        <p>Przykładowe dane do przesłania:</p>
+        <pre><code>{
+        "username": "exampleuser",
+        "password": "secretpassword"
+        }</code></pre>
+        <p>Aby pobrać informacje o użytkowniku, wykonaj zapytanie GET na poniższym adresie URL:</p>
+        <pre><code>GET /user-info/</code></pre>
+
+        <h2>Zarządzanie produktami</h2>
+        <p>Aby zarządzać produktami, wykonaj zapytania:</p>
+        <p>Wyświetl listę produktów:</p>
+        <pre><code>GET /products/</code></pre>
+        <p>Dodaj nowy produkt:</p>
+        <pre><code>POST /products/</code></pre>
+        <p>Przykładowe dane do przesłania:</p>
+        <pre><code>{
+        "name": "Example Product",
+        "price": 9.99,
+        "description": "This is an example product"
+        }</code></pre>
+        <p>Wyświetl, edytuj lub usuń produkt o konkretnym ID:</p>
+        <pre><code>GET /products/{id}/</code></pre>
+        <pre><code>PUT /products/{id}/</code></pre>
+        <pre><code>DELETE /products/{id}/</code></pre>
+    </body>
+</html>
