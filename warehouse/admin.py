@@ -1,6 +1,8 @@
 from django.contrib import admin
 
+from .models import Warehouse, Zone, Rack, Shelf
 
-from .models import StoragePlace
-
-admin.site.register(StoragePlace)
+admin.site.register(Warehouse)
+admin.site.register(Zone)
+admin.site.register(Rack)
+admin.site.register(Shelf)
